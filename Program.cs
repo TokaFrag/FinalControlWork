@@ -22,16 +22,15 @@ int FindCount(string[] array, int size)
 }
 
 
-
-string[] FindLengthThree(string[] array, int size, int count)
+string[] CreateNewArray(string[] array, int size, int count)
 {
     string[] newArray = new string[count];
     int index = 0;
-    for (int i = 0; i < array.Length; i++)
+    foreach (string el in array)
     {
-        if (array[i].Length <= size)
+        if (el.Length <= size)
         {
-            newArray[index] = array[i];
+            newArray[index] = el;
             index++;
         }
     }
@@ -39,8 +38,8 @@ string[] FindLengthThree(string[] array, int size, int count)
 }
 
 int sizeFindLength = 3;
-string[] array = { "12341", "15671", "-2", "computer science", "22", "HELLO!!!!!", "-98" };
+string[] array = { "12341", "15671", "-2", "computer science", "22", "HELLO!!!!!", "-98", "Hi" };
 int count = FindCount(array, sizeFindLength);
-string[] newArray = FindLengthThree(array, sizeFindLength, count);
+string[] newArray = CreateNewArray(array, sizeFindLength, count);
 Print($"The string array is shorter {sizeFindLength} characters => [{PrintArr(newArray)}]");
 
